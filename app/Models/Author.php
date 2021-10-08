@@ -9,6 +9,8 @@ class Author extends Model
 {
     use HasFactory;
 
+    private mixed $live_die_unknow;
+
     public function books()
     {
         return $this->hasMany(Book::class, 'author_id');
