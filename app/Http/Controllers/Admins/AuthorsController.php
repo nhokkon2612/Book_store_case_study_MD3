@@ -13,11 +13,11 @@ class AuthorsController extends Controller
     public function index()
     {
         $authors=Author::all();
-        return view('authors.list',compact('authors'));
+        return view('backend.authors.list',compact('authors'));
     }
     public function create()
     {
-        return view('authors.create');
+        return view('backend.authors.create');
     }
 
     public function store(Request $request): \Illuminate\Http\RedirectResponse
@@ -36,13 +36,13 @@ class AuthorsController extends Controller
         }
         $authors->save();
         session::flash('success', 'Tạo mới thành công');
-        return redirect()->route('authors.index');
+        return redirect()->route('backend.authors.index');
     }
 
     public function edit($id)
     {
         $authors = Author::find($id);
-        return view('authors.edit', compact('authors'));
+        return view('backend.authors.edit', compact('authors'));
     }
 
     public function update(request $request, $id)
@@ -67,7 +67,7 @@ class AuthorsController extends Controller
         $authors->save();
         Session::flash('success', 'Cập nhật thành công');
         //tao moi xong quay ve trang danh sach task
-        return redirect()->route('authors.index');
+        return redirect()->route('backend.authors.index');
     }
     public function destroy($id){
         $authors = Author::find($id);
@@ -81,6 +81,6 @@ class AuthorsController extends Controller
 
         $authors->delete();
         Session::flash('success','Xóa thành công');
-        return redirect()->route('authors.index');
+        return redirect()->route('backend.authors.index');
     }
 }

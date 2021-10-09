@@ -12,15 +12,18 @@ class BookController extends Controller
 {
     public function index()
     {
-        $books = Book::all();
+//        $books = Book::all();
+        $books = Book::with('categories','author','publisher')->get();
 
-        return view('books.list', compact('books'));
+        dd($books);
+
+        return view('backend.books.list', compact('books'));
 
     }
 
     public function create()
     {
-        return view('books.create');
+        return view('backend.books.create');
     }
 
     public function store(Request $request): \Illuminate\Http\RedirectResponse
@@ -39,13 +42,13 @@ class BookController extends Controller
         $book->quantity_now = $request->input('quantity_now');
         $book->save();
         session::flash('success', 'Tạo mới thành công');
-        return redirect()->route('books.index');
+        return redirect()->route('backend.books.index');
     }
 
     public function edit($id)
     {
         $books = Book::find($id);
-        return view('books.edit', compact('books'));
+        return view('backend.books.edit', compact('books'));
     }
 
     public function update(request $request, $id)
@@ -69,7 +72,7 @@ class BookController extends Controller
         $book->save();
         Session::flash('success', 'Cập nhật thành công');
         //tao moi xong quay ve trang danh sach task
-        return redirect()->route('books.index');
+        return redirect()->route('backend.books.index');
     }
     public function destroy($id){
         $book= Book::find($id);
@@ -83,6 +86,6 @@ class BookController extends Controller
 
         $book->delete();
         Session::flash('success','Xóa thành công');
-        return redirect()->route('books.index');
+        return redirect()->route('backend.books.index');
     }
 }

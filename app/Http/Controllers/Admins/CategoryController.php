@@ -14,13 +14,13 @@ class CategoryController extends Controller
     {
         $categories = Category::all();
 
-        return view('categories.list', compact('categories'));
+        return view('backend.categories.list', compact('categories'));
 
     }
 
     public function create()
     {
-        return view('categories.create');
+        return view('backend.categories.create');
     }
 
     public function store(Request $request): \Illuminate\Http\RedirectResponse
@@ -30,13 +30,13 @@ class CategoryController extends Controller
         $categories->description = $request->input('description');
         $categories->save();
         session::flash('success', 'Tạo mới thành công');
-        return redirect()->route('categories.index');
+        return redirect()->route('backend.categories.index');
     }
 
     public function edit($id)
     {
         $categories = Category::find($id);
-        return view('categories.edit', compact('categories'));
+        return view('backend.categories.edit', compact('categories'));
     }
 
     public function update(request $request, $id)
@@ -47,12 +47,12 @@ class CategoryController extends Controller
         $categories->save();
         Session::flash('success', 'Cập nhật thành công');
         //tao moi xong quay ve trang danh sach task
-        return redirect()->route('categories.index');
+        return redirect()->route('backend.categories.index');
     }
     public function destroy($id){
         $categories = Category::find($id);
         $categories->delete();
         Session::flash('success','Xóa thành công');
-        return redirect()->route('categories.index');
+        return redirect()->route('backend.categories.index');
     }
 }

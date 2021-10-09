@@ -11,7 +11,7 @@ use Illuminate\Support\Facades\Hash;
 class LoginController extends Controller
 {
     public function showLogin(){
-        return view('login.login');
+        return view('backend.login.login');
     }
 
     public function login(Request $request)
@@ -21,7 +21,7 @@ class LoginController extends Controller
 
         if (Auth::attempt($data)) {
             $request->session()->regenerate();
-            return redirect()->route('dashboard');
+            return redirect()->route('backend.layout.dashboard');
         }
         $message = 'Đăng nhập không thành công. Tên người dùng hoặc mật khẩu không đúng.';
         $request->session()->flash('login-fail', $message);
