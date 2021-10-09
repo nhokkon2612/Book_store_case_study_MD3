@@ -9,16 +9,21 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>Purple Admin</title>
+    <!-- plugins:css -->
     <link rel="stylesheet" href="master/vendors/iconfonts/mdi/css/materialdesignicons.min.css">
     <link rel="stylesheet" href="master/vendors/css/vendor.bundle.base.css">
     <link rel="stylesheet" href="master/vendors/css/vendor.bundle.addons.css">
+    <!-- endinject -->
+    <!-- plugin css for this page -->
     <link rel="stylesheet" href="master/vendors/iconfonts/font-awesome/css/font-awesome.min.css" />
+    <!-- End plugin css for this page -->
+    <!-- inject:css -->
     <link rel="stylesheet" href="master/css/style.css">
+    <!-- endinject -->
     <link rel="shortcut icon" href="master/images/favicon.png" />
 </head>
 
 <body>
-
 <div class="container-scroller">
     <!-- partial:partials/_navbar.html -->
     @extends('layouts.core.navbar');
@@ -26,6 +31,7 @@
     <div class="container-fluid page-body-wrapper">
         <!-- partial:partials/_settings-panel.html -->
         <div id="settings-trigger"><i class="mdi mdi-settings"></i></div>
+        @extends('layouts.core.right-sidebar');
         <div id="theme-settings" class="settings-panel">
             <i class="settings-close mdi mdi-close"></i>
             <p class="settings-heading">SIDEBAR SKINS</p>
@@ -57,14 +63,22 @@
 </div>
 <!-- container-scroller -->
 
+<!-- plugins:js -->
 <script src="master/vendors/js/vendor.bundle.base.js"></script>
 <script src="master/vendors/js/vendor.bundle.addons.js"></script>
+<!-- endinject -->
+<!-- Plugin js for this page-->
+<!-- End plugin js for this page-->
+<!-- inject:js -->
 <script src="master/js/off-canvas.js"></script>
 <script src="master/js/hoverable-collapse.js"></script>
 <script src="master/js/misc.js"></script>
 <script src="master/js/settings.js"></script>
 <script src="master/js/todolist.js"></script>
+<!-- endinject -->
+<!-- Custom js for this page-->
 <script src="master/js/dashboard.js"></script>
+<!-- End custom js for this page-->
 </body>
 
 
