@@ -14,17 +14,24 @@ use App\Http\Controllers\LoginController;
 |
 */
 Route::get('/', function () {
-    return view('layouts.master');
+    return view('backend.book.list');
+});
+Route::get('/1', function () {
+    return view('backend.layout.dashboard');
 });
 Route::get('/register', function () {
     return view('Register.register');
 })->name('showFormRegister');
 
-Route::get('/login', [LoginController::class, 'showLogin'])->name('showFormLogin');
-Route::post('/login', [LoginController::class, 'login'])->name('login');
 
-Route::get('/change-password', [LoginController::class, 'showChangePassword'])->name('show.changePassword');
-Route::post('/change-password', [LoginController::class, 'changePassword'])->name('changePassword');
 
-Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
-
+//
+//
+//Route::get('/login', [LoginController::class, 'showLogin'])->name('showFormLogin');
+//Route::post('/login', [LoginController::class, 'login'])->name('login');
+//
+//Route::get('/change-password', [LoginController::class, 'showChangePassword'])->name('show.changePassword');
+//Route::post('/change-password', [LoginController::class, 'changePassword'])->name('changePassword');
+//
+//Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
+//
