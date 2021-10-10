@@ -85,4 +85,10 @@ class CustomerController extends Controller
         Session::flash('success','Xóa thành công');
         return redirect()->route('backend.customers.index');
     }
+    public function index2()
+    {
+        $customers = Customer::all();
+        return view('layouts.dashboard', compact('customers'));
+
+    }
 }

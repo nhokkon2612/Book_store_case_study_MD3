@@ -1,7 +1,6 @@
 <?php
 
 use App\Http\Controllers\Admins\BookController;
-use App\Http\Controllers\Admins\CategorieController;
 use App\Http\Controllers\Admins\CategoryController;
 use App\Http\Controllers\Admins\CustomerController;
 use App\Http\Controllers\Admins\PublisherController;
@@ -21,12 +20,8 @@ use App\Http\Controllers\Admins\AuthorsController;
 |
 */
 Route::get('/', function () {
-    return view('backend.book.list');
-});
-Route::get('/1', function () {
-    return view('backend.layout.dashboard');
-});
-
+    return view('backend.layout.page');
+})->name('homepage');
 
 Route::prefix('books')->group(function () {
     Route::get('/', [BookController::class, 'index'])->name('admin.books.index');
@@ -38,7 +33,7 @@ Route::prefix('books')->group(function () {
 });
 Route::prefix('customers')->group(function () {
     Route::get('/', [CustomerController::class, 'index'])->name('admin.customers.index');
-    Route::get('/create', [CustomerController::class, 'create'])->name('admin.customers.create');
+    Route::get('/create', [CustomerController::class, 'create'])->name('admin.customers.creat');
     Route::post('/create', [CustomerController::class, 'store'])->name('admin.customers.store');
     Route::get('{id}/edit', [CustomerController::class, 'edit'])->name('admin.customers.edit');
     Route::post('{id}/edit', [CustomerController::class, 'update'])->name('admin.customers.update');

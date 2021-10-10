@@ -3,7 +3,7 @@
         <li class="nav-item nav-profile">
             <a href="#" class="nav-link">
                 <div class="nav-profile-image">
-                    <img src="master/images/faces/face1.jpg" alt="profile">
+                    <img src="{{asset('master/images/faces/face1.jpg')}}" alt="profile">
                     <span class="login-status online"></span>
                     <!--change to offline or busy as needed-->
                 </div>
@@ -15,7 +15,7 @@
             </a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="">
+            <a class="nav-link" href="{{route('homepage')}}">
                 <span class="menu-title">Trang chủ</span>
                 <i class="mdi mdi-home menu-icon"></i>
             </a>
@@ -32,22 +32,22 @@
                     <li style="border:1px solid black; height:40px">
                         <input type="text" style="height:80%" class="form-control bg-transparent border-0" placeholder="Tìm khách hàng">
                     </li>
-                    <li class="nav-item"> <a class="nav-link" href="">Danh sách khách hàng</a></li>
+                    <li class="nav-item"> <a class="nav-link" href="{{route('admin.customers.index')}}">Danh sách khách hàng</a></li>
                     <li class="nav-item"> <a class="nav-link" href="">Khách VIP</a></li>
-                    <li class="nav-item"> <a class="nav-link" href="">Thêm4</a></li>
+                    <li class="nav-item"> <a class="nav-link" href="{{route('admin.customers.creat')}}">Thêm khách hàng</a></li>
                 </ul>
             </div>
         </li>
         <li class="nav-item">
             <a class="nav-link" data-toggle="collapse" href="#sidebar-layouts" aria-expanded="false"
                aria-controls="sidebar-layouts">
-                <span class="menu-title">Sidebar Layouts</span>
+                <span class="menu-title">Quản lí sản phẩm</span>
                 <i class="menu-arrow"></i>
                 <i class="mdi mdi-playlist-play menu-icon"></i>
             </a>
             <div class="collapse" id="sidebar-layouts">
                 <ul class="nav flex-column sub-menu">
-                    <li class="nav-item"> <a class="nav-link" href="">Compact menu</a></li>
+                    <li class="nav-item"> <a class="nav-link" href="{{route('admin.books.index')}}">Danh sách sản phẩm</a></li>
                     <li class="nav-item"> <a class="nav-link" href="">Icon menu</a></li>
                     <li class="nav-item"> <a class="nav-link" href="">Sidebar Hidden</a>
                     </li>

@@ -5,12 +5,12 @@
               <span class="page-title-icon bg-gradient-primary text-white mr-2">
                 <i class="mdi mdi-home"></i>
               </span>
-                Dashboard
+                Bảng điều khiển trang chủ
             </h3>
             <nav aria-label="breadcrumb">
                 <ul class="breadcrumb">
                     <li class="breadcrumb-item active" aria-current="page">
-                        <span></span>Overview
+                        <span></span>Tổng quát
                         <i class="mdi mdi-alert-circle-outline icon-sm text-primary align-middle"></i>
                     </li>
                 </ul>
@@ -21,11 +21,11 @@
                 <div class="card bg-gradient-danger card-img-holder text-white">
                     <div class="card-body">
                         <img src="master/images/dashboard/circle.svg" class="card-img-absolute" alt="circle-image" />
-                        <h4 class="font-weight-normal mb-3">Weekly Sales
+                        <h4 class="font-weight-normal mb-3">Quản lí sách
                             <i class="mdi mdi-chart-line mdi-24px float-right"></i>
                         </h4>
                         <h2 class="mb-5">$ 15,0000</h2>
-                        <h6 class="card-text">Increased by 60%</h6>
+                        <h6 class="card-text">Giá trị tăng 60%</h6>
                     </div>
                 </div>
             </div>
@@ -33,11 +33,11 @@
                 <div class="card bg-gradient-info card-img-holder text-white">
                     <div class="card-body">
                         <img src="master/images/dashboard/circle.svg" class="card-img-absolute" alt="circle-image" />
-                        <h4 class="font-weight-normal mb-3">Weekly Orders
+                        <h4 class="font-weight-normal mb-3">Quản lí khách hàng
                             <i class="mdi mdi-bookmark-outline mdi-24px float-right"></i>
                         </h4>
                         <h2 class="mb-5">45,6334</h2>
-                        <h6 class="card-text">Decreased by 10%</h6>
+                        <h6 class="card-text">Số lượng khách hàng 10%</h6>
                     </div>
                 </div>
             </div>
@@ -45,11 +45,71 @@
                 <div class="card bg-gradient-success card-img-holder text-white">
                     <div class="card-body">
                         <img src="master/images/dashboard/circle.svg" class="card-img-absolute" alt="circle-image" />
-                        <h4 class="font-weight-normal mb-3">Visitors Online
+                        <h4 class="font-weight-normal mb-3">Quản lí danh mục sản phẩm
                             <i class="mdi mdi-diamond mdi-24px float-right"></i>
                         </h4>
-                        <h2 class="mb-5">95,5741</h2>
-                        <h6 class="card-text">Increased by 5%</h6>
+                        <h2 class="mb-5">Hiện tại có 7</h2>
+                        <h6 class="card-text">Danh mục sản phẩm tăng 5%</h6>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12 grid-margin">
+                <div class="card">
+                    <div class="card-body">
+                        <h4 class="card-title">Top khách hàng tiềm năng</h4>
+                        <div class="table-responsive">
+                            <table class="table">
+                                <thead>
+                                <tr>
+                                    <th>
+                                        Tên khách hàng
+                                    </th>
+                                    <th>
+                                        Email
+                                    </th>
+                                    <th>
+                                        Địa chỉ
+                                    </th>
+                                    <th>
+                                        Số điện thoại
+                                    </th>
+                                    <th>
+                                        Ngày sinh
+                                    </th>
+                                    <th>
+                                        Ngày cập nhật
+                                    </th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                @foreach($customers as $key => $customer)
+                                    <tr>
+                                        <td>
+                                            <img {{$customer->image}} class="mr-2" alt="image">
+                                            {{$customer->name}}
+                                        </td>
+                                        <td>
+                                            {{$customer->email}}
+                                        </td>
+                                        <td>
+                                            {{$customer->address}}
+                                        </td>
+                                        <td>
+                                            {{$customer->phone}}
+                                        </td>
+                                        <td>
+                                            {{$customer->date_of_birth}}
+                                        </td>
+                                        <td>
+                                            {{$customer->updated_at}}
+                                        </td>
+                                    </tr>
+                                @endforeach
+                                </tbody>
+                            </table>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -77,112 +137,7 @@
                 </div>
             </div>
         </div>
-        <div class="row">
-            <div class="col-12 grid-margin">
-                <div class="card">
-                    <div class="card-body">
-                        <h4 class="card-title">Recent Tickets</h4>
-                        <div class="table-responsive">
-                            <table class="table">
-                                <thead>
-                                <tr>
-                                    <th>
-                                        Assignee
-                                    </th>
-                                    <th>
-                                        Subject
-                                    </th>
-                                    <th>
-                                        Status
-                                    </th>
-                                    <th>
-                                        Last Update
-                                    </th>
-                                    <th>
-                                        Tracking ID
-                                    </th>
-                                </tr>
-                                </thead>
-                                <tbody>
-                                <tr>
-                                    <td>
-                                        <img src="master/images/faces/face1.jpg" class="mr-2" alt="image">
-                                        David Grey
-                                    </td>
-                                    <td>
-                                        Fund is not recieved
-                                    </td>
-                                    <td>
-                                        <label class="badge badge-gradient-success">DONE</label>
-                                    </td>
-                                    <td>
-                                        Dec 5, 2017
-                                    </td>
-                                    <td>
-                                        WD-12345
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <img src="master/images/faces/face2.jpg" class="mr-2" alt="image">
-                                        Stella Johnson
-                                    </td>
-                                    <td>
-                                        High loading time
-                                    </td>
-                                    <td>
-                                        <label class="badge badge-gradient-warning">PROGRESS</label>
-                                    </td>
-                                    <td>
-                                        Dec 12, 2017
-                                    </td>
-                                    <td>
-                                        WD-12346
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <img src="master/images/faces/face3.jpg" class="mr-2" alt="image">
-                                        Marina Michel
-                                    </td>
-                                    <td>
-                                        Website down for one week
-                                    </td>
-                                    <td>
-                                        <label class="badge badge-gradient-info">ON HOLD</label>
-                                    </td>
-                                    <td>
-                                        Dec 16, 2017
-                                    </td>
-                                    <td>
-                                        WD-12347
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <img src="master/images/faces/face4.jpg" class="mr-2" alt="image">
-                                        John Doe
-                                    </td>
-                                    <td>
-                                        Loosing control on server
-                                    </td>
-                                    <td>
-                                        <label class="badge badge-gradient-danger">REJECTED</label>
-                                    </td>
-                                    <td>
-                                        Dec 3, 2017
-                                    </td>
-                                    <td>
-                                        WD-12348
-                                    </td>
-                                </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+
         <div class="row">
             <div class="col-lg-5 grid-margin stretch-card">
                 <div class="card">
